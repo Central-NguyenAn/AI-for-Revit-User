@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="Revit"
+                    ProductType="Application" Name="RevitBridge" 
+                    Description="AI for Revit - HTTP Bridge for AI/LLM integration"
+                    AppVersion="1.0.0" FriendlyVersion="1.0.0"  
+                    AppNameSpace="appstore.exchange.autodesk.com" 
+                    ProductCode="{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"        
+                    Author="AI-for-Revit"
+                    HelpFile=""
+                    OnlineDocumentation="">
+
+  <CompanyDetails Name="AI for Revit" Url="https://github.com/user/revitbridge"
+                  Email="support@revitbridge.dev" />
+
+  <RuntimeRequirements OS="Win64" 
+                       Platform="Revit" 
+                       SeriesMin="R2023" 
+                       SeriesMax="R2025" />
+
+  <Components Description="2023">
+    <RuntimeRequirements OS="Win64"
+                         Platform="Revit"
+                         SeriesMin="R2023"
+                         SeriesMax="R2023" />
+
+    <ComponentEntry AppName="RevitBridge2023" Version="1.0.0"
+                    ModuleName="./Contents/2023/RevitBridge.addin"
+                    AppDescription="RevitBridge for Revit 2023" />
+  </Components>
+
+  <Components Description="2024">
+    <RuntimeRequirements OS="Win64"
+                         Platform="Revit"
+                         SeriesMin="R2024"
+                         SeriesMax="R2024" />
+
+    <ComponentEntry AppName="RevitBridge2024" Version="1.0.0"
+                    ModuleName="./Contents/2024/RevitBridge.addin"
+                    AppDescription="RevitBridge for Revit 2024" />
+  </Components>
+
+  <Components Description="2025">
+    <RuntimeRequirements OS="Win64"
+                         Platform="Revit"
+                         SeriesMin="R2025"
+                         SeriesMax="R2025" />
+
+    <ComponentEntry AppName="RevitBridge2025" Version="1.0.0"
+                    ModuleName="./Contents/2025/RevitBridge.addin"
+                    AppDescription="RevitBridge for Revit 2025" />
+  </Components>
+  
+</ApplicationPackage>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>RevitBridge</Name>
+    <Assembly>RevitBridge.dll</Assembly>
+    <FullClassName>RevitBridge.Application</FullClassName>
+    <ClientId>F7A3B1C2-D4E5-6F78-9012-3456789ABCDE</ClientId>
+    <VendorId>RevitBridge</VendorId>
+    <VendorDescription>AI for Revit - HTTP Bridge</VendorDescription>
+  </AddIn>
+</RevitAddIns>
