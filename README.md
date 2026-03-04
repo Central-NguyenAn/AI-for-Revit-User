@@ -1,280 +1,167 @@
-# AI for Revit — Tài liệu Tổng hợp Khả năng
+﻿# ≡ƒñû AI for Revit
 
-**Phiên bản:** 2.2 | **Cập nhật:** 04/03/2026  
-**Model AI:** Gemini 2.5 Flash | **Ngôn ngữ:** Tiếng Việt & Tiếng Anh
+**Trß╗ú l├╜ AI th├┤ng minh gi├║p bß║ín truy vß║Ñn v├á ph├ón t├¡ch m├┤ h├¼nh Revit bß║▒ng ng├┤n ngß╗» tß╗▒ nhi├¬n.**
+
+Chß╗ë cß║ºn m├┤ tß║ú y├¬u cß║ºu ΓÇö AI sß║╜ tß╗▒ ─æß╗Öng truy vß║Ñn dß╗» liß╗çu tß╗½ m├┤ h├¼nh Revit v├á trß║ú kß║┐t quß║ú ngay trong editor.
 
 ---
 
-## Kiến trúc Hệ thống
+## Γ£¿ T├¡nh n─âng hiß╗çn c├│
 
-Hệ thống hỗ trợ **2 chế độ hoạt động** song song:
+| Nh├│m | T├¡nh n─âng | V├¡ dß╗Ñ c├óu hß╗Åi |
+|:---|:---|:---|
+| **≡ƒôè Thß╗æng k├¬** | ─Éß║┐m, tß╗òng hß╗úp, nh├│m theo type | "Thß╗æng k├¬ sß╗æ l╞░ß╗úng ß╗æng theo loß║íi" |
+| **≡ƒöì Truy vß║Ñn** | Lß╗ìc elements theo category, type, parameter | "Liß╗çt k├¬ tß║Ñt cß║ú ß╗æng c├│ k├¡ch th╞░ß╗¢c DN100" |
+| **≡ƒôï Schedule** | ─Éß╗ìc v├á xuß║Ñt dß╗» liß╗çu schedule | "Cho t├┤i xem schedule Pipe Schedule" |
+| **≡ƒôÉ Parameters** | ─Éß╗ìc/ghi parameter cß╗ºa element | "─Éß╗ìc parameters cß╗ºa element ID 12345" |
+| **≡ƒÅ╖∩╕Å Categories** | Liß╗çt k├¬ categories trong m├┤ h├¼nh | "Trong m├┤ h├¼nh c├│ nhß╗»ng category n├áo?" |
+| **≡ƒæå Selection** | Thao t├íc vß╗¢i elements ─æang chß╗ìn | "Thß╗æng k├¬ phß╗Ñ kiß╗çn trong c├íc ─æß╗æi t╞░ß╗úng ─æang chß╗ìn" |
+| **ΓÜá∩╕Å Warnings** | Kiß╗âm tra cß║únh b├ío m├┤ h├¼nh | "M├┤ h├¼nh c├│ bao nhi├¬u warnings?" |
+| **≡ƒôü Worksets** | Kiß╗âm tra worksets | "Liß╗çt k├¬ c├íc worksets trong dß╗▒ ├ín" |
+| **≡ƒöù Links** | Th├┤ng tin Revit Links | "C├│ nhß╗»ng linked model n├áo?" |
+| **≡ƒÅù∩╕Å Views/Sheets** | Danh s├ích Views v├á Sheets | "Liß╗çt k├¬ tß║Ñt cß║ú sheets" |
+| **Γä╣∩╕Å Project Info** | Th├┤ng tin dß╗▒ ├ín | "Th├┤ng tin dß╗▒ ├ín ─æang mß╗ƒ l├á g├¼?" |
 
-### Chế độ 1: AI Chat tích hợp trong Revit (Chính)
+### Categories hß╗ù trß╗ú
+Walls, Floors, Columns, Structural Framing, Ducts, Duct Fittings, Pipes, Pipe Fittings, Cable Trays, Cable Tray Fittings, Conduits, Conduit Fittings, Mechanical Equipment, Sprinklers, Doors, Windows, Rooms, Ceilings, Stairs, Railings, Generic Models, Furniture, Grids, Levels.
 
+---
+
+## ≡ƒÜÇ C├ái ─æß║╖t
+
+### B╞░ß╗¢c 1: C├ái ─æß║╖t Antigravity (IDE)
+
+Antigravity l├á IDE (tr├¼nh soß║ín thß║úo code) t├¡ch hß╗úp AI, dß╗▒a tr├¬n VS Code.
+
+1. Truy cß║¡p **[antigravity.google](https://antigravity.google)** 
+2. Tß║úi bß║ún c├ái ─æß║╖t cho Windows
+3. Chß║íy file c├ái ─æß║╖t v├á l├ám theo h╞░ß╗¢ng dß║½n
+4. Khi khß╗ƒi ─æß╗Öng lß║ºn ─æß║ºu, **─æ─âng nhß║¡p bß║▒ng t├ái khoß║ún Google** cß╗ºa bß║ín
+5. Chß╗ìn theme (giao diß╗çn) y├¬u th├¡ch
+
+> ≡ƒÆí **Tip**: Nß║┐u bß║ín ─æ├ú d├╣ng VS Code, chß╗ìn "Import from Visual Studio Code" ─æß╗â giß╗» lß║íi c├íc c├ái ─æß║╖t c┼⌐.
+
+### B╞░ß╗¢c 2: C├ái ─æß║╖t Plugin Revit
+
+1. Giß║úi n├⌐n (hoß║╖c mß╗ƒ) folder **AI-for-Revit**
+2. **Double-click v├áo `install.bat`** ΓÇö script sß║╜ tß╗▒ ─æß╗Öng copy plugin v├áo Revit
+3. Hß╗ù trß╗ú **Revit 2023** v├á **Revit 2024**
+
+> ΓÜá∩╕Å **L╞░u ├╜**: ─É├│ng Revit tr╞░ß╗¢c khi chß║íy install.bat nß║┐u ─æang mß╗ƒ.
+
+### B╞░ß╗¢c 3: Bß║»t ─æß║ºu sß╗¡ dß╗Ñng
+
+1. Mß╗ƒ **folder `AI-for-Revit`** trong Antigravity (File ΓåÆ Open Folder)
+2. Mß╗ƒ cß╗¡a sß╗ò chat (Agent panel)
+3. G├╡ **`/start`** ΓåÆ AI sß║╜ nß║íp tri thß╗⌐c v├á kiß╗âm tra kß║┐t nß╗æi Revit
+4. Bß║»t ─æß║ºu ─æß║╖t y├¬u cß║ºu bß║▒ng tiß║┐ng Viß╗çt! ≡ƒÄë
+
+---
+
+## ≡ƒÆÄ T├ái khoß║ún Gemini ΓÇö So s├ính c├íc g├│i
+
+AI for Revit sß╗¡ dß╗Ñng Gemini AI th├┤ng qua t├ái khoß║ún Google cß╗ºa bß║ín. **Thß╗¥i l╞░ß╗úng truy vß║Ñn phß╗Ñ thuß╗Öc v├áo loß║íi t├ái khoß║ún:**
+
+| | **≡ƒåô Free** | **≡ƒÆ│ Google AI Pro ($20/th├íng)** | **≡ƒææ Google AI Ultra ($250/th├íng)** |
+|:---|:---:|:---:|:---:|
+| **Model ch├¡nh** | Gemini Flash | Gemini Pro + Flash | Gemini Pro + Flash |
+| **Sß╗æ truy vß║Ñn/ng├áy** | ~20ΓÇô50 | ~100ΓÇô1,500 | ~500ΓÇô1,500 |
+| **Tß╗æc ─æß╗Ö phß║ún hß╗ôi** | B├¼nh th╞░ß╗¥ng | Nhanh | Nhanh nhß║Ñt |
+| **Ph├╣ hß╗úp** | D├╣ng thß╗¡, ├¡t truy vß║Ñn | D├╣ng h├áng ng├áy | D├╣ng chuy├¬n s├óu |
+
+> ≡ƒô¥ **Ghi ch├║**: Sß╗æ truy vß║Ñn thß╗▒c tß║┐ c├│ thß╗â thay ─æß╗òi t├╣y theo ch├¡nh s├ích Google.
+
+---
+
+## ΓÜí C├ái ─æß║╖t khuyß║┐n nghß╗ï ΓÇö Tß╗æi ╞░u tß╗æc ─æß╗Ö
+
+─Éß╗â c├│ **trß║úi nghiß╗çm nhanh nhß║Ñt** v├á **tiß║┐t kiß╗çm quota**, h├úy cß║Ñu h├¼nh trong Antigravity:
+
+### 1. Chß╗ìn chß║┐ ─æß╗Ö Fast
+- Mß╗ƒ **Settings** trong Antigravity
+- T├¼m mß╗Ñc **Agent Mode** hoß║╖c **Speed**
+- Chß╗ìn **Fast** thay v├¼ Standard/Thorough
+
+### 2. Chß╗ìn model Gemini Flash
+- Trong cß╗¡a sß╗ò chat, chß╗ìn model: **Gemini Flash** (thay v├¼ Gemini Pro)
+- Flash nhanh h╞ín 2-3x v├á ti├¬u tß╗æn ├¡t quota h╞ín
+- ─Éß╗º mß║ính cho hß║ºu hß║┐t c├íc truy vß║Ñn Revit
+
+> ≡ƒÆí **Khi n├áo d├╣ng Gemini Pro?** Chß╗ë khi cß║ºn ph├ón t├¡ch phß╗⌐c tß║íp (thß╗æng k├¬ nhiß╗üu b╞░ß╗¢c, so s├ính dß╗» liß╗çu lß╗¢n). C├íc truy vß║Ñn th├┤ng th╞░ß╗¥ng d├╣ng Flash l├á ─æß╗º.
+
+---
+
+## ≡ƒôû H╞░ß╗¢ng dß║½n sß╗¡ dß╗Ñng
+
+### Khß╗ƒi ─æß╗Öng (mß╗ùi lß║ºn mß╗ƒ Antigravity mß╗¢i)
 ```
-👤 User ←→ 🏗️ AI Chat DockablePane (WPF, C#)
-                     ↕
-              🤖 Gemini API (REST, gọi trực tiếp từ C#)
-                     ↕
-              🔧 ToolExecutor → Handlers (gọi nội bộ, không qua HTTP)
-                     ↕
-              📐 Revit API (mô hình BIM)
+/start
 ```
+AI sß║╜ nß║íp tri thß╗⌐c v├á kiß╗âm tra kß║┐t nß╗æi Revit.
 
-- Nhúng trực tiếp vào Revit dưới dạng **DockablePane**
-- Giao tiếp Gemini API bằng `HttpClient` (C#), **không cần Python**
-- Gọi handler nội bộ qua `ToolExecutor` — nhanh hơn, không cần HTTP server
+### V├¡ dß╗Ñ truy vß║Ñn
 
-### Chế độ 2: Python AI Gateway (Bổ sung / Dev)
-
+**Thß╗æng k├¬:**
 ```
-👤 User ←→ 🐍 Python AI Gateway (chat.py) ←→ 🤖 Gemini API
-                     ↕
-              � HTTP Client
-                     ↕
-              �🏗️ RevitBridge HTTP Server (localhost:8080)
-                     ↕
-              📐 Revit API (mô hình BIM)
-```
-
-- CLI chat qua terminal
-- Gọi RevitBridge qua HTTP (`localhost:8080`)
-- Phù hợp để dev/test hoặc tích hợp bên ngoài
-
----
-
-## Danh sách 18 Tools
-
-### 1. Truy vấn Dự án
-
-| Tool | Mô tả |
-|---|---|
-| `get_project_info` | Tên dự án, đường dẫn file, phiên bản Revit |
-| `get_categories` | Liệt kê tất cả categories có element trong mô hình |
-
-**Ví dụ câu hỏi:**
-- "Dự án này tên gì?"
-- "Mô hình có những loại đối tượng nào?"
-
----
-
-### 2. Truy vấn Elements
-
-| Tool | Mô tả |
-|---|---|
-| `get_elements` | Tìm elements theo category, lọc theo tên/type name |
-| `get_element_parameters` | Đọc tất cả parameters của 1 element |
-| `set_element_parameter` | Cập nhật giá trị parameter ⚠️ |
-
-**Ví dụ câu hỏi:**
-- "Liệt kê tất cả ống CDD"
-- "Ống ID 7391236 có những tham số gì?"
-- "Đổi Mark của ống 7391236 thành 'ABC-001'"
-
----
-
-### 3. Thống kê & Tính toán
-
-| Tool | Mô tả |
-|---|---|
-| `get_elements_parameter` | Trích xuất 1 parameter từ nhiều elements (có statistics: sum/min/max/avg) |
-| `get_elements_summary` | **Nhóm theo Type Name** + tính tổng — giống Revit Schedule. Hỗ trợ **conditions** (`Width < 400`) |
-
-**Ví dụ câu hỏi:**
-- "Tổng chiều dài tất cả ống trong mô hình?"
-- "Tổng chiều dài ống gió TDF Flange có bề rộng nhỏ hơn 400?"
-- "Bao nhiêu ống CDD có đường kính lớn hơn 100?"
-- "So sánh chiều dài các loại ống theo type?"
-
-**Tính năng conditions:**
-```
-Operators hỗ trợ: =, !=, <, >, <=, >=, contains
-Ví dụ: Width < 400, Diameter >= 100, Comments contains "CDD"
-```
-
----
-
-### 4. Views & Sheets
-
-| Tool | Mô tả |
-|---|---|
-| `get_views` | Liệt kê Views/Sheets, nhóm theo loại (FloorPlan, Section, 3D...) |
-| `get_active_view` | Xác định view hiện hành đang mở — tên, loại view, tỷ lệ, level |
-
-**Ví dụ câu hỏi:**
-- "Mô hình có bao nhiêu view?"
-- "Có bao nhiêu sheet?"
-- "Liệt kê các view 3D"
-- "Tôi đang mở view nào?"
-- "View hiện tại là gì?"
-
----
-
-### 5. Quản lý Mô hình
-
-| Tool | Mô tả |
-|---|---|
-| `get_warnings` | Đọc warnings/errors, nhóm theo loại |
-| `get_worksets` | Liệt kê worksets (workshared models) |
-| `get_linked_models` | Liệt kê Revit Links |
-
-**Ví dụ câu hỏi:**
-- "Mô hình có bao nhiêu lỗi?"
-- "Lỗi nào xuất hiện nhiều nhất?"
-- "Có những file link nào?"
-- "Workset nào đang mở?"
-
----
-
-### 6. Schedules
-
-| Tool | Mô tả |
-|---|---|
-| `get_schedules` | Liệt kê tất cả Schedules |
-| `export_schedule` | Xuất dữ liệu Schedule ra JSON — **chính xác nhất** |
-
-**Ví dụ câu hỏi:**
-- "Có những schedule nào trong mô hình?"
-- "Đọc dữ liệu từ Pipe Schedule 2"
-- "Tổng chiều dài ống trong Duct Schedule là bao nhiêu?"
-
----
-
-### 7. Tương tác UI
-
-| Tool | Mô tả |
-|---|---|
-| `select_elements` | Chọn (highlight) elements trong Revit theo danh sách Element IDs |
-| `get_selected_elements` | Lấy danh sách Element IDs đang được chọn trong Revit |
-| `find_and_select_elements` | ⚡ Tìm + chọn elements cùng lúc (nhanh hơn, gộp 2 bước thành 1) |
-
-**Ví dụ câu hỏi:**
-- "Tìm tất cả ống CDD và chọn chúng trong mô hình"
-- "Highlight các ống có đường kính lớn hơn 200"
-- "Tôi đang chọn mấy đối tượng trong Revit?"
-
----
-
-### 8. Phản hồi & Feedback
-
-| Tool | Mô tả |
-|---|---|
-| `report_feature_request` | Ghi nhận yêu cầu tính năng mà AI chưa hỗ trợ → gửi cho team phát triển |
-
-- AI tự động gọi tool này khi người dùng yêu cầu tính năng ngoài khả năng hiện tại
-- Lưu local tại `%APPDATA%/RevitBridge/feature_requests.json`
-- Gửi webhook tới Google Sheets (nếu đã cấu hình)
-
----
-
-## Tối ưu Hiệu suất (v2.1)
-
-| Tối ưu | Hiệu quả |
-|---|---|
-| **Gộp tool `find_and_select_elements`** | Giảm 3 → 2 round-trip API, tiết kiệm ~2-5 giây mỗi thao tác tìm+chọn |
-| **Trim history** (max 20 entries) | Tránh payload ngày càng lớn, giữ tốc độ ổn định khi chat dài |
-| **Compact tool results** (max 2000 chars) | Gửi ít data hơn cho Gemini, giảm thời gian xử lý |
-| **Streaming response** | Text hiển thị realtime từng phần, UX mượt hơn |
-
----
-
-## Hạn chế Hiện tại
-
-| Hạn chế | Lý do | Hướng xử lý |
-|---|---|---|
-| Không tạo được đối tượng mới | Chưa implement create endpoint | Thêm sau |
-| Không xóa/di chuyển đối tượng | Chưa implement modify/delete endpoint | Thêm sau |
-| Không xử lý được file CAD/Link | Cần truy cập cross-document | Thêm sau |
-| Không xuất file (PDF, DWG...) | Chưa implement export endpoint | Thêm sau |
-
----
-
-## Cách Sử dụng
-
-### Cách 1: AI Chat DockablePane (Khuyến nghị)
-
-1. Cài đặt `RevitBridge.bundle` vào `%APPDATA%\Autodesk\ApplicationPlugins\`
-2. Mở Revit — plugin tự load
-3. Nhập **Gemini API Key** lần đầu (lưu vào `config.json`)
-4. Vào tab **AI** trên Ribbon → click **AI Chat** để mở panel
-5. Gõ câu hỏi bằng tiếng Việt hoặc tiếng Anh
-
-### Cách 2: Python CLI (Dev/Test)
-
-1. Mở Revit với mô hình cần truy vấn (RevitBridge HTTP server tự khởi động tại `localhost:8080`)
-2. Cấu hình `AIGateway/.env` (copy từ `.env.example`)
-3. Cài dependencies: `pip install -r AIGateway/requirements.txt`
-4. Chạy: `py AIGateway/chat.py`
-5. Gõ câu hỏi bằng tiếng Việt hoặc tiếng Anh
-
----
-
-## Đóng gói & Phân phối
-
-```powershell
-# Build + đóng gói ZIP
-powershell -ExecutionPolicy Bypass -File package.ps1
+Thß╗æng k├¬ tß╗òng chiß╗üu d├ái ß╗æng theo loß║íi
+─Éß║┐m sß╗æ l╞░ß╗úng duct fittings trong m├┤ h├¼nh
+Liß╗çt k├¬ khß╗æi l╞░ß╗úng phß╗Ñ kiß╗çn ─æang chß╗ìn
 ```
 
-Output: `dist/AI-for-Revit-v1.0.zip` chứa:
+**Truy vß║Ñn cß╗Ñ thß╗â:**
+```
+Cho t├┤i xem parameters cß╗ºa element ID 123456
+T├¼m tß║Ñt cß║ú ß╗æng c├│ ─æ╞░ß╗¥ng k├¡nh lß╗¢n h╞ín DN200
+Liß╗çt k├¬ tß║Ñt cß║ú views trong dß╗▒ ├ín
+```
 
+**Thao t├íc:**
 ```
-AI-for-Revit/
-├── RevitBridge.bundle/        (Plugin Revit — copy vào ApplicationPlugins)
-│   ├── PackageContents.xml
-│   └── Contents/
-│       ├── 2023/              (Revit 2023)
-│       └── 2024/              (Revit 2024)
-├── AIGateway/                 (Python chat — tùy chọn)
-├── install.bat                (Cài đặt 1-click)
-├── INSTALL.md                 (Hướng dẫn cài đặt)
-└── README.md
+Chß╗ìn (highlight) tß║Ñt cß║ú Pipe Fittings trong m├┤ h├¼nh
+Trong m├┤ h├¼nh c├│ bao nhi├¬u warnings?
+Workset n├áo ─æang trß╗æng?
 ```
+
+**Schedule:**
+```
+Liß╗çt k├¬ c├íc schedule c├│ trong m├┤ h├¼nh
+Cho t├┤i xem dß╗» liß╗çu schedule "Pipe Schedule"
+```
+
+### L╞░u ├╜ quan trß╗ìng
+- Lu├┤n g├╡ `/start` khi mß╗ƒ cß╗¡a sß╗ò chat mß╗¢i
+- Revit phß║úi ─æang mß╗ƒ v├á model ─æ├ú load
+- AI trß║ú lß╗¥i bß║▒ng **tiß║┐ng Viß╗çt**
+- Nß║┐u AI kh├┤ng thß╗▒c hiß╗çn ─æ╞░ß╗úc y├¬u cß║ºu, n├│ sß║╜ **tß╗▒ ─æß╗Öng gß╗¡i y├¬u cß║ºu cho ─æß╗Öi ph├ít triß╗ân** ─æß╗â cß║¡p nhß║¡t t├¡nh n─âng
 
 ---
 
-## Cấu trúc Source Code
+## ≡ƒöº Y├¬u cß║ºu hß╗ç thß╗æng
 
-```
-AI for Revit/
-├── RevitBridge/                   # C# Plugin (chạy trong Revit)
-│   ├── Application.cs                 # Entry point: HTTP Server + AI Chat DockablePane + Ribbon
-│   ├── Core/
-│   │   ├── HttpServer.cs              # HTTP server localhost:8080
-│   │   ├── RequestRouter.cs           # Route → Handler
-│   │   └── RevitApiHandler.cs         # Thread-safe Revit API access (Idling event)
-│   ├── Chat/                          # ★ AI Chat tích hợp (không cần Python)
-│   │   ├── AIChatPage.cs             # WPF DockablePane UI + streaming display
-│   │   ├── ChatMessage.cs            # Chat message model
-│   │   ├── GeminiService.cs          # Gemini REST API + streaming + history trim
-│   │   ├── ToolExecutor.cs           # Map tool name → handler (gọi nội bộ)
-│   │   └── FeedbackCollector.cs      # Thu thập feature requests → local + webhook
-│   ├── Handlers/
-│   │   ├── HealthHandler.cs           # GET /api/health
-│   │   ├── ProjectInfoHandler.cs      # GET /api/project-info
-│   │   ├── ElementsHandler.cs         # Elements + Categories + Summary + Conditions + Select + FindAndSelect
-│   │   ├── ParametersHandler.cs       # Get/Set parameters
-│   │   ├── ViewsHandler.cs            # Views listing
-│   │   └── ModelInfoHandler.cs        # Warnings, Worksets, Links, Schedules
-│   ├── Models/
-│   │   ├── ApiRequest.cs              # Request models
-│   │   └── ApiResponse.cs             # Response models (ProjectInfo, etc.)
-│   ├── config.json                    # API key + webhook URL
-│   ├── PackageContents.xml            # Bundle manifest (Revit 2023/2024)
-│   └── RevitBridge.sln
-│
-├── AIGateway/                     # Python AI Layer (chế độ CLI)
-│   ├── chat.py                    # Main chat loop (Gemini + Function Calling)
-│   ├── tools.py                   # Tool definitions (Python gateway)
-│   ├── revit_client.py            # HTTP client → RevitBridge
-│   ├── requirements.txt           # google-genai, python-dotenv
-│   └── .env.example               # Template API key
-│
-├── dist-template/                 # Template cho bản phân phối
-│   ├── install.bat                # Script cài đặt 1-click
-│   ├── INSTALL.md                 # Hướng dẫn cài đặt chi tiết
-│   └── google_sheets_webhook.js   # Google Apps Script cho feedback webhook
-│
-├── package.ps1                    # Script đóng gói (Build + ZIP)
-└── README.md                      # Tài liệu này
-```
+| Th├ánh phß║ºn | Y├¬u cß║ºu |
+|:---|:---|
+| **Revit** | 2023 hoß║╖c 2024 |
+| **Hß╗ç ─æiß╗üu h├ánh** | Windows 10/11 (64-bit) |
+| **IDE** | Antigravity (tß║úi tß║íi [antigravity.google](https://antigravity.google)) |
+| **T├ái khoß║ún** | Google account (Free hoß║╖c trß║ú ph├¡) |
+| **Kß║┐t nß╗æi mß║íng** | Cß║ºn internet ─æß╗â gß╗ìi AI |
+
+---
+
+## Γ¥ô FAQ
+
+**Q: AI c├│ thß╗â sß╗¡a/th├¬m/x├│a elements trong m├┤ h├¼nh kh├┤ng?**  
+A: Hiß╗çn tß║íi AI c├│ thß╗â **─æß╗ìc** v├á **set parameter** cho elements. Ch╞░a hß╗ù trß╗ú tß║ío mß╗¢i hoß║╖c x├│a elements.
+
+**Q: T├┤i muß╗æn AI l├ám th├¬m t├¡nh n─âng X th├¼ sao?**  
+A: Cß╗⌐ y├¬u cß║ºu AI! Nß║┐u t├¡nh n─âng ch╞░a c├│, AI sß║╜ tß╗▒ ─æß╗Öng ghi nhß║¡n v├á gß╗¡i y├¬u cß║ºu cho ─æß╗Öi ph├ít triß╗ân.
+
+**Q: Dß╗» liß╗çu m├┤ h├¼nh c├│ bß╗ï gß╗¡i ra ngo├ái kh├┤ng?**  
+A: Dß╗» liß╗çu ─æ╞░ß╗úc xß╗¡ l├╜ **local tr├¬n m├íy bß║ín**. Chß╗ë c├óu hß╗Åi v├á kß║┐t quß║ú truy vß║Ñn ─æ╞░ß╗úc gß╗¡i tß╗¢i Gemini AI ─æß╗â ph├ón t├¡ch.
+
+**Q: Plugin c├│ xung ─æß╗Öt vß╗¢i addon kh├íc kh├┤ng?**  
+A: Kh├┤ng. Plugin hoß║ít ─æß╗Öng ─æß╗Öc lß║¡p, kh├┤ng can thiß╗çp v├áo c├íc addon kh├íc.
+
+---
+
+*Ph├ít triß╗ân bß╗ƒi Central-NguyenAn ΓÇó Phi├¬n bß║ún 1.0*
