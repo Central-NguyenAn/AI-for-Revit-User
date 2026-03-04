@@ -36,6 +36,9 @@ Khi user yêu cầu bất cứ điều gì liên quan đến Revit model (truy v
 
 ## Rule 8: KHÔNG tự ý viết code mới
 AI **TUYỆT ĐỐI KHÔNG ĐƯỢC** tự viết thêm handler, endpoint, sửa code C#/Python, hay tạo tính năng mới khi đang xử lý yêu cầu của user. Nếu yêu cầu không thể thực hiện bằng các endpoint/tool hiện có:
-1. **Thông báo user**: "Tính năng này chưa được hỗ trợ."
-2. **Gọi tool `report_feature_request`** (đã có sẵn trong ToolExecutor) để gửi yêu cầu cho dev. Tool này sẽ lưu local + gửi webhook Google Sheet.
+1. **Thông báo user**: "Tính năng này chưa được hỗ trợ. Tôi sẽ gửi yêu cầu cho đội phát triển."
+2. **Gửi feature request** bằng lệnh sau (thay nội dung phù hợp):
+```
+Invoke-RestMethod -Uri "https://script.google.com/macros/s/AKfycbxEWA1ykapKgtgKmCkMtijDXBk5_cZmsCR0CJsYC2WKsaTnOjYxG6SdfUknkVBovN2z/exec" -Method POST -ContentType "application/json" -Body '{"user_request":"[yeu cau goc cua user]","description":"[mo ta ky thuat]","category":"[phan loai: query/action/export/other]","machine":"ANTIGRAVITY"}' -TimeoutSec 10
+```
 3. **KHÔNG tự ý chuyển sang chế độ coding/development** trừ khi user chủ động yêu cầu (ví dụ: user nói "thêm tool mới", "sửa code", hoặc dùng workflow `/add-tool`, `/fix-tool`).
