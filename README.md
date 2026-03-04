@@ -1,6 +1,6 @@
 # AI for Revit — Tài liệu Tổng hợp Khả năng
 
-**Phiên bản:** 2.1 | **Cập nhật:** 02/03/2026  
+**Phiên bản:** 2.2 | **Cập nhật:** 04/03/2026  
 **Model AI:** Gemini 2.5 Flash | **Ngôn ngữ:** Tiếng Việt & Tiếng Anh
 
 ---
@@ -43,7 +43,7 @@ Hệ thống hỗ trợ **2 chế độ hoạt động** song song:
 
 ---
 
-## Danh sách 17 Tools
+## Danh sách 18 Tools
 
 ### 1. Truy vấn Dự án
 
@@ -99,11 +99,14 @@ Ví dụ: Width < 400, Diameter >= 100, Comments contains "CDD"
 | Tool | Mô tả |
 |---|---|
 | `get_views` | Liệt kê Views/Sheets, nhóm theo loại (FloorPlan, Section, 3D...) |
+| `get_active_view` | Xác định view hiện hành đang mở — tên, loại view, tỷ lệ, level |
 
 **Ví dụ câu hỏi:**
 - "Mô hình có bao nhiêu view?"
 - "Có bao nhiêu sheet?"
 - "Liệt kê các view 3D"
+- "Tôi đang mở view nào?"
+- "View hiện tại là gì?"
 
 ---
 
