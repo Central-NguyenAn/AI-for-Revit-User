@@ -42,6 +42,7 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Elements đang chọn | `/api/elements/selected` | GET |
 | Thống kê elements đang chọn | `/api/elements/selected/summary` | GET |
 | Tìm và chọn elements | `/api/elements/find-and-select` | POST, body: `{"category":"..."}` |
+| Khoảng cách 2 elements đang chọn | `/api/elements/selected/distance` | GET |
 
 ### 3. Gọi API bằng curl
 // turbo
