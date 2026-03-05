@@ -33,6 +33,7 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Trích xuất 1 parameter nhiều elements | `/api/elements/parameter` | POST, body: `{"category":"...","parameterName":"..."}` |
 | Thống kê nhóm theo type | `/api/elements/summary` | POST, body: `{"category":"...","parameterName":"..."}` |
 | Danh sách Views/Sheets | `/api/views` | GET |
+| View hiện hành đang mở | `/api/active-view` | GET |
 | Warnings | `/api/warnings` | GET |
 | Worksets | `/api/worksets` | GET |
 | Revit Links | `/api/linked-models` | GET |
@@ -72,6 +73,7 @@ Một số yêu cầu cần nhiều API call:
 - "Danh sách ống theo loại" → `POST /api/elements/summary`
 - "Thay đổi parameter" → Xác nhận với user trước → `POST /api/element/{id}/parameters`
 - "Cho tui xem schedule X" → `GET /api/schedules` để tìm tên → `GET /api/schedule/{name}`
+- "Tôi đang mở view nào?" → `GET /api/active-view`
 
 ### 6. Quy tắc quan trọng
 - **Luôn dùng `statistics.sum` hoặc `grandTotal`** từ kết quả API — KHÔNG tự cộng
