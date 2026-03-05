@@ -62,20 +62,4 @@ Xóa thư mục:
 | Chat không phản hồi | Kiểm tra kết nối internet |
 | Lỗi 429 (rate limit) | Chờ 1 phút rồi thử lại |
 
----
 
-## AIGateway (Tùy chọn — Dành cho người dùng nâng cao)
-
-Nếu muốn chat qua Terminal thay vì trong Revit:
-
-1. Cài [Python 3.9+](https://www.python.org/downloads/)
-2. Mở Terminal trong thư mục `AIGateway`:
-   ```
-   pip install -r requirements.txt
-   copy .env.example .env
-   ```
-3. Sửa file `.env`: thay `your_api_key_here` bằng API key
-4. Chạy:
-   ```
-   py chat.py
-   ```
