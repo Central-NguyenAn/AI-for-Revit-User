@@ -44,7 +44,7 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Thống kê elements đang chọn | `/api/elements/selected/summary` | GET |
 | Tìm và chọn elements | `/api/elements/find-and-select` | POST, body: `{"category":"..."}` |
 | Khoảng cách 2 elements đang chọn | `/api/elements/selected/distance` | GET |
-| Kiểm tra bao phủ sprinkler (chọn trước) | `/api/sprinklers/coverage-check` | POST, body: `{"cellSize":0.5}` |
+| Kiểm tra bao phủ sprinkler (chọn trước) | `/api/sprinklers/coverage-check` | POST, body: `{"cellSize":0.5,"autoSelect":true}` |
 
 ### 3. Gọi API bằng curl
 // turbo
