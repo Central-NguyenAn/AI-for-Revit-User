@@ -10,20 +10,34 @@ Chỉ cần mô tả yêu cầu — AI sẽ tự động truy vấn dữ liệu 
 
 | Nhóm | Tính năng | Ví dụ câu hỏi |
 |:---|:---|:---|
-| **📊 Thống kê** | Đếm, tổng hợp, nhóm theo type | "Thống kê số lượng ống theo loại" |
+| **📊 Thống kê** | Đếm, tổng hợp, nhóm theo type, lọc theo điều kiện | "Thống kê số lượng ống theo loại" |
 | **🔍 Truy vấn** | Lọc elements theo category, type, parameter | "Liệt kê tất cả ống có kích thước DN100" |
 | **📋 Schedule** | Đọc và xuất dữ liệu schedule | "Cho tôi xem schedule Pipe Schedule" |
-| **📐 Parameters** | Đọc/ghi parameter của element | "Đọc parameters của element ID 12345" |
+| **📐 Parameters** | Đọc/ghi parameter của element, ghi hàng loạt | "Đọc parameters của element ID 12345" |
 | **🏷️ Categories** | Liệt kê categories trong mô hình | "Trong mô hình có những category nào?" |
-| **👆 Selection** | Thao tác với elements đang chọn | "Thống kê phụ kiện trong các đối tượng đang chọn" |
+| **👆 Selection** | Tìm kiếm + chọn elements, thống kê elements đang chọn | "Chọn tất cả Pipe Fittings trong mô hình" |
+| **📏 Khoảng cách** | Đo khoảng cách giữa 2 elements đang chọn | "Đo khoảng cách giữa 2 đối tượng đang chọn" |
 | **⚠️ Warnings** | Kiểm tra cảnh báo mô hình | "Mô hình có bao nhiêu warnings?" |
 | **📁 Worksets** | Kiểm tra worksets | "Liệt kê các worksets trong dự án" |
 | **🔗 Links** | Thông tin Revit Links | "Có những linked model nào?" |
 | **🏗️ Views/Sheets** | Danh sách Views/Sheets, xác định view hiện hành | "Tôi đang mở view nào?" |
 | **ℹ️ Project Info** | Thông tin dự án | "Thông tin dự án đang mở là gì?" |
+| **🔥 MEP Tracing** | Truy vết kết nối hệ thống MEP (ống, ống gió...) | "Truy vết các elements nối với ống ID 12345" |
+| **🚿 Sprinkler** | Kiểm tra bao phủ sprinkler, đếm sprinkler trên ống | "Kiểm tra vùng bao phủ sprinkler đang chọn" |
+
+### 🆕 Tính năng mới (v2.0)
+
+- **Lọc theo điều kiện**: Thống kê với điều kiện (`Width < 400`, `Diameter >= 100`, `Comments contains "CDD"`)
+- **Tìm + Chọn nhanh**: Gộp tìm kiếm và chọn elements thành 1 bước, tiết kiệm thời gian
+- **Đo khoảng cách**: Đo khoảng cách giữa 2 elements đang chọn trong mô hình
+- **Set parameter hàng loạt**: Cập nhật parameter cho nhiều elements cùng lúc
+- **MEP Tracing**: Truy vết kết nối hệ thống MEP — xem các elements nối với nhau  
+- **Sprinkler Coverage Check**: Kiểm tra vùng bao phủ sprinkler theo lưới, tự động chọn vùng trống
+- **Pipe-Sprinkler Count**: Đếm số sprinkler hạ nguồn trên từng ống + kiểm tra đường kính theo quy tắc
+- **Thống kê elements đang chọn**: Xem nhanh thống kê các đối tượng đang highlight trong Revit
 
 ### Categories hỗ trợ
-Walls, Floors, Columns, Structural Framing, Ducts, Duct Fittings, Pipes, Pipe Fittings, Cable Trays, Cable Tray Fittings, Conduits, Conduit Fittings, Mechanical Equipment, Sprinklers, Doors, Windows, Rooms, Ceilings, Stairs, Railings, Generic Models, Furniture, Grids, Levels.
+Walls, Floors, Columns, Structural Framing, Foundations, Ducts, Duct Fittings, Pipes, Pipe Fittings, Cable Trays, Cable Tray Fittings, Conduits, Conduit Fittings, Mechanical Equipment, Sprinklers, Doors, Windows, Rooms, Ceilings, Stairs, Railings, Generic Models, Furniture, Grids, Levels.
 
 ---
 
@@ -106,6 +120,7 @@ AI sẽ nạp tri thức và kiểm tra kết nối Revit.
 Thống kê tổng chiều dài ống theo loại
 Đếm số lượng duct fittings trong mô hình
 Liệt kê khối lượng phụ kiện đang chọn
+Thống kê ống gió có bề rộng nhỏ hơn 400
 ```
 
 **Truy vấn cụ thể:**
@@ -121,12 +136,25 @@ Tôi đang mở view nào? / View hiện tại là gì?
 Chọn (highlight) tất cả Pipe Fittings trong mô hình
 Trong mô hình có bao nhiêu warnings?
 Workset nào đang trống?
+Đo khoảng cách giữa 2 đối tượng đang chọn
 ```
 
 **Schedule:**
 ```
 Liệt kê các schedule có trong mô hình
 Cho tôi xem dữ liệu schedule "Pipe Schedule"
+```
+
+**MEP & Sprinkler (mới):**
+```
+Truy vết các elements nối với ống ID 12345
+Kiểm tra vùng bao phủ sprinkler đang chọn
+Đếm số sprinkler trên từng ống đang chọn
+```
+
+**Parameter hàng loạt (mới):**
+```
+Set Mark = "ABC" cho tất cả ống CDD được chọn
 ```
 
 ### Lưu ý quan trọng
@@ -152,7 +180,7 @@ Cho tôi xem dữ liệu schedule "Pipe Schedule"
 ## ❓ FAQ
 
 **Q: AI có thể sửa/thêm/xóa elements trong mô hình không?**  
-A: Hiện tại AI có thể **đọc** và **set parameter** cho elements. Chưa hỗ trợ tạo mới hoặc xóa elements.
+A: Hiện tại AI có thể **đọc** và **set parameter** cho elements (bao gồm set hàng loạt). Chưa hỗ trợ tạo mới hoặc xóa elements.
 
 **Q: Tôi muốn AI làm thêm tính năng X thì sao?**  
 A: Cứ yêu cầu AI! Nếu tính năng chưa có, AI sẽ tự động ghi nhận và gửi yêu cầu cho đội phát triển.
@@ -165,4 +193,4 @@ A: Không. Plugin hoạt động độc lập, không can thiệp vào các addo
 
 ---
 
-*Phát triển bởi Central-NguyenAn • Phiên bản 1.0*
+*Phát triển bởi Central-NguyenAn • Phiên bản 2.0*
