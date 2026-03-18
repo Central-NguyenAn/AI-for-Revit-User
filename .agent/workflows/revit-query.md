@@ -45,6 +45,9 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Tìm và chọn elements | `/api/elements/find-and-select` | POST, body: `{"category":"..."}` |
 | Khoảng cách 2 elements đang chọn | `/api/elements/selected/distance` | GET |
 | Kiểm tra bao phủ sprinkler (chọn trước) | `/api/sprinklers/coverage-check` | POST, body: `{"cellSize":0.5,"autoSelect":true}` |
+| Truy vết kết nối hệ thống MEP | `/api/mep/connected-elements` | POST, body: `{"elementIds":[...],"maxDepth":100}` |
+| Đếm sprinkler trên từng ống + kiểm tra đường kính | `/api/mep/pipe-sprinkler-count` | POST, body: `{"useSelection":true,"diameterRules":[...]}` |
+| Set parameter hàng loạt | `/api/elements/set-parameter-bulk` | POST, body: `{"changes":[{"elementId":...,"parameterName":"...","value":"..."}]}` |
 
 ### 3. Gọi API bằng curl
 // turbo
