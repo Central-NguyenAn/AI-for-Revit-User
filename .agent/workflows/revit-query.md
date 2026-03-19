@@ -48,6 +48,8 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Truy vết kết nối hệ thống MEP | `/api/mep/connected-elements` | POST, body: `{"elementIds":[...],"maxDepth":100}` |
 | Đếm sprinkler trên từng ống + kiểm tra đường kính | `/api/mep/pipe-sprinkler-count` | POST, body: `{"useSelection":true,"diameterRules":[...]}` |
 | Set parameter hàng loạt | `/api/elements/set-parameter-bulk` | POST, body: `{"changes":[{"elementId":...,"parameterName":"...","value":"..."}]}` |
+| Set parameter theo level | `/api/elements/set-parameter-by-level` | POST, body: `{"category":"...","parameterName":"...","rules":[{"levels":["..."],"value":"..."},{"levels":["*"],"value":"..."}]}` |
+| Tìm + Gán parameter (all-in-one) | `/api/elements/filter-and-set-parameter` | POST, body: `{"category":"...","levels":["..."],"parameterName":"...","value":"...","dryRun":true}` |
 
 ### 3. Gọi API bằng curl
 // turbo
@@ -75,12 +77,37 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/elements" -Method POST -Conten
 Một số yêu cầu cần nhiều API call:
 - "Tổng chiều dài ống" → `POST /api/elements/summary` với `{"category":"Pipes","parameterName":"Length"}`
 - "Danh sách ống theo loại" → `POST /api/elements/summary`
-- "Thay đổi parameter" → Xác nhận với user trước → `POST /api/element/{id}/parameters`
+- "Thay đổi parameter" → Xem **mục 7. Quy trình gán tham số** bên dưới
 - "Cho tui xem schedule X" → `GET /api/schedules` để tìm tên → `GET /api/schedule/{name}`
 - "Tôi đang mở view nào?" → `GET /api/active-view`
 
 ### 6. Quy tắc quan trọng
 - **Luôn dùng `statistics.sum` hoặc `grandTotal`** từ kết quả API — KHÔNG tự cộng
-- **Xác nhận trước khi thay đổi** (set_element_parameter)
+- **Xác nhận trước khi thay đổi** (set parameter) — luôn hỏi user trước khi gán
 - Nếu element nhiều, tóm tắt và hỏi user muốn xem chi tiết không
 - Nếu user yêu cầu tính năng chưa có (tạo, xóa, di chuyển...) → thông báo chưa hỗ trợ
+- **KHÔNG dùng `set-parameter-by-level`** — endpoint này bị lỗi encoding Unicode tiếng Việt trong PowerShell (tên tầng `TẦNG` → `T?NG`)
+- **Luôn dùng `set-parameter-bulk`** kết hợp với danh sách element ID đã lọc trước (xem mục 7)
+
+### 7. Quy trình gán tham số (SET PARAMETER) — BẮT BUỘC
+Khi user yêu cầu gán/thay đổi parameter cho nhiều elements, **LUÔN** dùng endpoint all-in-one `filter-and-set-parameter`:
+
+**Bước 1: Dry-run — tìm và đếm elements (KHÔNG gán)**
+// turbo
+```
+Invoke-RestMethod -Uri "http://localhost:8080/api/elements/filter-and-set-parameter" -Method POST -ContentType "application/json; charset=utf-8" -Body ([System.Text.Encoding]::UTF8.GetBytes('{"category":"<CATEGORY>","levels":["<TẦNG 1>","<TẦNG 2>"],"parameterName":"<PARAM>","value":"<VALUE>","dryRun":true}')) -TimeoutSec 120 | ConvertTo-Json -Depth 5
+```
+→ Báo kết quả cho user (bao nhiêu elements, ở đâu) → Xác nhận trước khi tiếp tục.
+
+**Bước 2: Apply — gán parameter thật**
+// turbo
+```
+Invoke-RestMethod -Uri "http://localhost:8080/api/elements/filter-and-set-parameter" -Method POST -ContentType "application/json; charset=utf-8" -Body ([System.Text.Encoding]::UTF8.GetBytes('{"category":"<CATEGORY>","levels":["<TẦNG 1>","<TẦNG 2>"],"parameterName":"<PARAM>","value":"<VALUE>","dryRun":false}')) -TimeoutSec 120 | ConvertTo-Json -Depth 5
+```
+
+**Lưu ý:**
+- Luôn dùng `[System.Text.Encoding]::UTF8.GetBytes()` để tránh lỗi encoding Unicode
+- `levels` có thể bỏ trống nếu muốn gán cho TẤT CẢ elements trong category
+- Hỗ trợ thêm `filter` (lọc theo tên) và `conditions` (lọc theo parameter)
+- **KHÔNG dùng cách cũ** (query elements → lấy ID → gọi set-parameter-bulk) vì quá chậm
+
