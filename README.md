@@ -1,196 +1,92 @@
-# 🤖 AI for Revit
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Autodesk_Revit_2024_Icon.png/240px-Autodesk_Revit_2024_Icon.png" width="80" alt="Revit Logo">
+  <h1>AI for Revit - Powered by Antigravity</h1>
+  <p><strong>Giao tiếp, truy vấn và điều khiển mô hình Revit trực tiếp bằng Ngôn ngữ tự nhiên</strong></p>
 
-**Trợ lý AI thông minh giúp bạn truy vấn và phân tích mô hình Revit bằng ngôn ngữ tự nhiên.**
-
-Chỉ cần mô tả yêu cầu — AI sẽ tự động truy vấn dữ liệu từ mô hình Revit và trả kết quả ngay trong editor.
-
----
-
-## ✨ Tính năng hiện có
-
-| Nhóm | Tính năng | Ví dụ câu hỏi |
-|:---|:---|:---|
-| **📊 Thống kê** | Đếm, tổng hợp, nhóm theo type, lọc theo điều kiện | "Thống kê số lượng ống theo loại" |
-| **🔍 Truy vấn** | Lọc elements theo category, type, parameter | "Liệt kê tất cả ống có kích thước DN100" |
-| **📋 Schedule** | Đọc và xuất dữ liệu schedule | "Cho tôi xem schedule Pipe Schedule" |
-| **📐 Parameters** | Đọc/ghi parameter của element, ghi hàng loạt | "Đọc parameters của element ID 12345" |
-| **🏷️ Categories** | Liệt kê categories trong mô hình | "Trong mô hình có những category nào?" |
-| **👆 Selection** | Tìm kiếm + chọn elements, thống kê elements đang chọn | "Chọn tất cả Pipe Fittings trong mô hình" |
-| **📏 Khoảng cách** | Đo khoảng cách giữa 2 elements đang chọn | "Đo khoảng cách giữa 2 đối tượng đang chọn" |
-| **⚠️ Warnings** | Kiểm tra cảnh báo mô hình | "Mô hình có bao nhiêu warnings?" |
-| **📁 Worksets** | Kiểm tra worksets | "Liệt kê các worksets trong dự án" |
-| **🔗 Links** | Thông tin Revit Links | "Có những linked model nào?" |
-| **🏗️ Views/Sheets** | Danh sách Views/Sheets, xác định view hiện hành | "Tôi đang mở view nào?" |
-| **ℹ️ Project Info** | Thông tin dự án | "Thông tin dự án đang mở là gì?" |
-| **🔥 MEP Tracing** | Truy vết kết nối hệ thống MEP (ống, ống gió...) | "Truy vết các elements nối với ống ID 12345" |
-| **🚿 Sprinkler** | Kiểm tra bao phủ sprinkler, đếm sprinkler trên ống | "Kiểm tra vùng bao phủ sprinkler đang chọn" |
-
-### 🆕 Tính năng mới (v2.0)
-
-- **Lọc theo điều kiện**: Thống kê với điều kiện (`Width < 400`, `Diameter >= 100`, `Comments contains "CDD"`)
-- **Tìm + Chọn nhanh**: Gộp tìm kiếm và chọn elements thành 1 bước, tiết kiệm thời gian
-- **Đo khoảng cách**: Đo khoảng cách giữa 2 elements đang chọn trong mô hình
-- **Set parameter hàng loạt**: Cập nhật parameter cho nhiều elements cùng lúc
-- **MEP Tracing**: Truy vết kết nối hệ thống MEP — xem các elements nối với nhau  
-- **Sprinkler Coverage Check**: Kiểm tra vùng bao phủ sprinkler theo lưới, tự động chọn vùng trống
-- **Pipe-Sprinkler Count**: Đếm số sprinkler hạ nguồn trên từng ống + kiểm tra đường kính theo quy tắc
-- **Thống kê elements đang chọn**: Xem nhanh thống kê các đối tượng đang highlight trong Revit
-
-### Categories hỗ trợ
-Walls, Floors, Columns, Structural Framing, Foundations, Ducts, Duct Fittings, Pipes, Pipe Fittings, Cable Trays, Cable Tray Fittings, Conduits, Conduit Fittings, Mechanical Equipment, Sprinklers, Doors, Windows, Rooms, Ceilings, Stairs, Railings, Generic Models, Furniture, Grids, Levels.
+  ![Revit Version](https://img.shields.io/badge/Revit-2023%20%7C%202024-0696D7?style=for-the-badge&logo=autodesk)
+  ![Antigravity](https://img.shields.io/badge/Antigravity-Ready-8A2BE2?style=for-the-badge&logo=google)
+  ![Gemini Flash](https://img.shields.io/badge/Powered_by-Gemini_Flash_|_Pro-FFC107?style=for-the-badge&logo=googlebard)
+</div>
 
 ---
 
-## 🚀 Cài đặt
+## 🌟 Giới thiệu
 
-### Bước 1: Cài đặt Antigravity (IDE)
+**AI for Revit** là hệ thống Plugin đột phá biến trải nghiệm làm việc với Revit trở nên đơn giản hơn bao giờ hết. Thay vì phải đau đầu click chuột qua hàng tỷ menu hoặc viết mã Dynamo phức tạp, bạn chỉ cần mở **Antigravity IDE** và *trò chuyện bằng tiếng Việt*.
 
-Antigravity là IDE (trình soạn thảo code) tích hợp AI, dựa trên VS Code.
-
-1. Truy cập **[antigravity.google](https://antigravity.google)** 
-2. Tải bản cài đặt cho Windows
-3. Chạy file cài đặt và làm theo hướng dẫn
-4. Khi khởi động lần đầu, **đăng nhập bằng tài khoản Google** của bạn
-5. Chọn theme (giao diện) yêu thích
-
-> 💡 **Tip**: Nếu bạn đã dùng VS Code, chọn "Import from Visual Studio Code" để giữ lại các cài đặt cũ.
-
-### Bước 2: Cài đặt Plugin Revit
-
-1. Giải nén (hoặc mở) folder **AI-for-Revit**
-2. **Double-click vào `install.bat`** — script sẽ tự động copy plugin vào Revit
-3. Hỗ trợ **Revit 2023** và **Revit 2024**
-
-> ⚠️ **Lưu ý**: Đóng Revit trước khi chạy install.bat nếu đang mở.
-
-### Bước 3: Bắt đầu sử dụng
-
-1. Mở **folder `AI-for-Revit`** trong Antigravity (File → Open Folder)
-2. Mở cửa sổ chat (Agent panel)
-3. Gõ **`/start`** → AI sẽ nạp tri thức và kiểm tra kết nối Revit
-4. Bắt đầu đặt yêu cầu bằng tiếng Việt! 🎉
+Nhờ kiến trúc HTTP Bridge tối ưu hóa đặc biệt và tệp tri thức cục bộ (`.agent/openapi.json`), **Antigravity AI** sẽ lập tức phân tích yêu cầu, gửi Command siêu tốc độ xuống Revit, và trả lại kết quả trong nháy mắt (LLM Compact Mode).
 
 ---
 
-## 💎 Tài khoản Gemini — So sánh các gói
+## ⚡ Bắt đầu nhanh (Plug-and-Play)
 
-AI for Revit sử dụng Gemini AI thông qua tài khoản Google của bạn. **Thời lượng truy vấn phụ thuộc vào loại tài khoản:**
+Chỉ mất đúng 2 phút để thiết lập môi trường hội thoại với Revit của bạn.
 
-| | **🆓 Free** | **💳 Google AI Pro ($20/tháng)** | **👑 Google AI Ultra ($250/tháng)** |
-|:---|:---:|:---:|:---:|
-| **Model chính** | Gemini Flash | Gemini Pro + Flash | Gemini Pro + Flash |
-| **Số truy vấn/ngày** | ~20–50 | ~100–1,500 | ~500–1,500 |
-| **Tốc độ phản hồi** | Bình thường | Nhanh | Nhanh nhất |
-| **Phù hợp** | Dùng thử, ít truy vấn | Dùng hàng ngày | Dùng chuyên sâu |
+### Bước 1: Khởi động Antigravity
+**Antigravity** là không gian làm việc AI chính yếu của bạn.
+1. Tải và cài đặt tại **[antigravity.google](https://antigravity.google)**.
+2. Đăng nhập bằng tài khoản Google. (Nên bật **Agent Mode: Fast** và chọn model **Gemini Flash** để tiết kiệm tài nguyên mà vẫn đảm bảo tốc độ cực nhanh).
 
-> 📝 **Ghi chú**: Số truy vấn thực tế có thể thay đổi tùy theo chính sách Google.
+### Bước 2: Cài đặt Plugin vào Revit
+1. Tải và giải nén thư mục `AI-for-Revit`.
+2. Đóng Revit nếu đang mở.
+3. Chạy tệp **`install.bat`** để tự động gắn Plugin vào hệ thống (Hỗ trợ Revit 2023/2024).
 
----
-
-## ⚡ Cài đặt khuyến nghị — Tối ưu tốc độ
-
-Để có **trải nghiệm nhanh nhất** và **tiết kiệm quota**, hãy cấu hình trong Antigravity:
-
-### 1. Chọn chế độ Fast
-- Mở **Settings** trong Antigravity
-- Tìm mục **Agent Mode** hoặc **Speed**
-- Chọn **Fast** thay vì Standard/Thorough
-
-### 2. Chọn model Gemini Flash
-- Trong cửa sổ chat, chọn model: **Gemini Flash** (thay vì Gemini Pro)
-- Flash nhanh hơn 2-3x và tiêu tốn ít quota hơn
-- Đủ mạnh cho hầu hết các truy vấn Revit
-
-> 💡 **Khi nào dùng Gemini Pro?** Chỉ khi cần phân tích phức tạp (thống kê nhiều bước, so sánh dữ liệu lớn). Các truy vấn thông thường dùng Flash là đủ.
+### Bước 3: Gắn kết AI và Mô hình
+1. Mở Revit và tải một dự án (Project/Model).
+2. Trở lại **Antigravity**, mở toàn bộ thư mục **`AI-for-Revit`** vừa giải nén (vào **File > Open Folder**). *Lưu ý: Bạn bắt buộc phải nạp thư mục này để AI nhận diện được tệp tri thức ngầm `.agent/`*.
+3. Mở bảng AI Chat, gõ lệnh:
+   > `/start`
+4. Antigravity sẽ tự động kích hoạt tri thức, lấy API Map và bạn đã sẵn sàng trò chuyện!
 
 ---
 
-## 📖 Hướng dẫn sử dụng
+## 🚀 Các tính năng cốt lõi (v2.0)
 
-### Khởi động (mỗi lần mở Antigravity mới)
-```
-/start
-```
-AI sẽ nạp tri thức và kiểm tra kết nối Revit.
+Hệ thống được thiết kế hoàn toàn riêng biệt (Tailor-made) cho Antigravity để xử lý khối lượng dữ liệu khổng lồ của Revit:
 
-### Ví dụ truy vấn
-
-**Thống kê:**
-```
-Thống kê tổng chiều dài ống theo loại
-Đếm số lượng duct fittings trong mô hình
-Liệt kê khối lượng phụ kiện đang chọn
-Thống kê ống gió có bề rộng nhỏ hơn 400
-```
-
-**Truy vấn cụ thể:**
-```
-Cho tôi xem parameters của element ID 123456
-Tìm tất cả ống có đường kính lớn hơn DN200
-Liệt kê tất cả views trong dự án
-Tôi đang mở view nào? / View hiện tại là gì?
-```
-
-**Thao tác:**
-```
-Chọn (highlight) tất cả Pipe Fittings trong mô hình
-Trong mô hình có bao nhiêu warnings?
-Workset nào đang trống?
-Đo khoảng cách giữa 2 đối tượng đang chọn
-```
-
-**Schedule:**
-```
-Liệt kê các schedule có trong mô hình
-Cho tôi xem dữ liệu schedule "Pipe Schedule"
-```
-
-**MEP & Sprinkler (mới):**
-```
-Truy vết các elements nối với ống ID 12345
-Kiểm tra vùng bao phủ sprinkler đang chọn
-Đếm số sprinkler trên từng ống đang chọn
-```
-
-**Parameter hàng loạt (mới):**
-```
-Set Mark = "ABC" cho tất cả ống CDD được chọn
-```
-
-### Lưu ý quan trọng
-- Luôn gõ `/start` khi mở cửa sổ chat mới
-- Revit phải đang mở và model đã load
-- AI trả lời bằng **tiếng Việt**
-- Nếu AI không thực hiện được yêu cầu, nó sẽ **tự động gửi yêu cầu cho đội phát triển** để cập nhật tính năng
+- **📊 Data Extraction & Schedules:** Đọc thông tin, xuất toàn bộ Bảng thống kê (Schedules), truy vấn Worksets, Links, Warnings.
+- **🔍 Auto-Filter & Selection:** Tìm kiếm hàng nghìn đối tượng theo Category, Level, Parameter và highlight ngay lập tức trên màn hình Revit.
+- **⚡ Macro Batch Update:** Gán/Sửa Parameter cho hàng nghìn đối tượng cùng lúc chỉ bằng một lệnh chat, không giới hạn tốc độ.
+- **🔥 Lưới MEP & Sprinkler tiên tiến:** Truy vết hệ thống đường ống, đếm sprinkler hạ nguồn, kiểm tra vùng bao phủ lưới ngay trên không gian 3D.
+- **🧠 LLM-Compact Mode:** Cấu trúc JSON trả về được nén tuyệt đối, giúp AI hiểu nhanh hơn gấp đôi, nói không với ảo giác (Hallucination).
 
 ---
 
-## 🔧 Yêu cầu hệ thống
+## 💬 Gợi ý Prompt (Câu lệnh mẫu)
 
-| Thành phần | Yêu cầu |
-|:---|:---|
-| **Revit** | 2023 hoặc 2024 |
-| **Hệ điều hành** | Windows 10/11 (64-bit) |
-| **IDE** | Antigravity (tải tại [antigravity.google](https://antigravity.google)) |
-| **Tài khoản** | Google account (Free hoặc trả phí) |
-| **Kết nối mạng** | Cần internet để gọi AI |
+Ngay khi gõ `/start`, hãy thử ngay các câu thần chú sau bằng Tiếng Việt:
 
----
+#### 1. Khám phá Mô hình
+> *"Trong mô hình hiện tại có những Category nào? Có bao nhiêu cảnh báo (warnings)?"*  
+> *"Liệt kê cho tôi thông tin của Dự án này và 10 worksets đầu tiên."*
 
-## ❓ FAQ
+#### 2. Chọn và Truy vấn chi tiết
+> *"Tìm và chọn (highlight) tất cả các ống (Pipes) có đường kính (Diameter) lớn hơn 150mm."*  
+> *"Đọc toàn bộ Parameter của Element ID 543210 cho tôi xem."*
 
-**Q: AI có thể sửa/thêm/xóa elements trong mô hình không?**  
-A: Hiện tại AI có thể **đọc** và **set parameter** cho elements (bao gồm set hàng loạt). Chưa hỗ trợ tạo mới hoặc xóa elements.
+#### 3. Chỉnh sửa siêu tốc (Batch API)
+> *"Tìm tất cả Doors ở 'Tầng 1' và đổi tham số 'Comments' thành 'Đã kiểm tra'."*  
+> *"Tăng giá trị 'Offset' của tất cả các Ống gió (Ducts) đang được chọn lên thêm 500mm."*
 
-**Q: Tôi muốn AI làm thêm tính năng X thì sao?**  
-A: Cứ yêu cầu AI! Nếu tính năng chưa có, AI sẽ tự động ghi nhận và gửi yêu cầu cho đội phát triển.
-
-**Q: Dữ liệu mô hình có bị gửi ra ngoài không?**  
-A: Dữ liệu được xử lý **local trên máy bạn**. Chỉ câu hỏi và kết quả truy vấn được gửi tới Gemini AI để phân tích.
-
-**Q: Plugin có xung đột với addon khác không?**  
-A: Không. Plugin hoạt động độc lập, không can thiệp vào các addon khác.
+#### 4. Phân tích Chuyên sâu (MEP)
+> *"Truy vết toàn bộ hệ thống nối với thiết bị (Mechanical Equipment) ID 98765."*  
+> *"Kiểm tra vùng phủ của 5 đầu Sprinkler tôi đang chọn, có chỗ nào bị trống không?"*
 
 ---
 
-*Phát triển bởi Central-NguyenAn • Phiên bản 2.0*
+## 🛠 Tài khoản và Hỗ trợ
+
+Hệ thống hoạt động dựa trên hạn mức API của Google AI. Bạn có thể sử dụng hoàn toàn miễn phí hoặc nâng cấp để có sức mạnh cao hơn:
+
+- **Bản Miễn phí (Gemini Flash):** Đủ dùng cho mục đích cơ bản, học tập. Khoảng 20-50 tác vụ/ngày.
+- **Bản Google AI Pro / Ultra:** Tốc độ thần tốc, phù hợp làm việc dự án thực tế lớn. Mức token khổng lồ giúp quét Schedule cả chục nghìn dòng.
+
+### AI không làm được yêu cầu của tôi?
+Đừng lo! Nếu Antigravity không tìm thấy tool phù hợp để thực thi, AI sẽ **tự động phân tích lý do lỗi và gửi đề xuất** vào bộ nhớ lõi. Đội ngũ phát triển (Central-NguyenAn) sẽ cập nhật tính năng mới ở phiên bản tiếp theo.
+
+---
+
+<div align="center">
+  <p><i>Được phát triển tinh gọn & tối ưu cho hệ sinh thái AI bởi <b>Central-NguyenAn</b>.</i></p>
+</div>
