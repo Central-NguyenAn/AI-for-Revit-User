@@ -3,7 +3,7 @@
   <h1>AI for Revit</h1>
   <p><strong>Công cụ giao tiếp, truy vấn và quản lý dữ liệu Revit thông qua ngôn ngữ tự nhiên</strong></p>
 
-  ![Version](https://img.shields.io/badge/Version-2.1-blue?style=flat-square)
+  ![Version](https://img.shields.io/badge/Version-2.2-blue?style=flat-square)
   ![Revit Version](https://img.shields.io/badge/Revit-2023%20%7C%202024-0696D7?style=flat-square&logo=autodesk)
   ![Antigravity](https://img.shields.io/badge/Antigravity-Integration-8A2BE2?style=flat-square&logo=google)
 </div>
@@ -38,14 +38,15 @@ Cơ sở dữ liệu lệnh được đính kèm sẵn dưới dạng tệp cấ
 
 ---
 
-## 3. Chức năng hệ thống (v2.1)
+## 3. Chức năng hệ thống (v2.2)
 
 ### 3.1 Truy vấn & Thống kê
 - **Data Extraction & Schedules:** Truy xuất tham số, trích xuất dữ liệu từ các Bảng thống kê (Schedules), truy vấn thông tin Worksets, Links và Warnings nội tại.
 - **Selection & Filtering:** Tìm kiếm đối tượng dựa trên Category, Level, hoặc các tham số kỹ thuật (Parameter conditions) cụ thể và chọn (highlight) trực tiếp trong môi trường 3D.
 - **Distance Measurement:** Đo khoảng cách 2D/3D giữa 2 đối tượng đang được chọn trong mô hình.
 
-### 3.2 Batch Parameter Update *(Mới v2.0)*
+### 3.2 Batch Parameter Update *(Mới v2.2)*
+- **Copy Parameter Values:** Copy giá trị từ parameter này sang parameter khác cho hàng loạt đối tượng.
 - **Filter & Set Parameter (All-in-one):** Tìm + lọc + gán parameter trong 1 lần gọi API. Hỗ trợ `dryRun` để xem trước trước khi gán thật.
 - **BoundingBox Level Filter:** Quét tất cả đối tượng 3D nằm giữa 2 Level (bằng BoundingBox), nhóm theo Category, và gán parameter hàng loạt — giống chức năng FloorParameterAssigner.
 - **Bulk Set Parameter:** Ghi/đè tham số cho hàng loạt Element ID chỉ với một lệnh.
@@ -55,7 +56,8 @@ Cơ sở dữ liệu lệnh được đính kèm sẵn dưới dạng tệp cấ
 - **Sprinkler Analysis:** Kiểm tra số lượng Sprinkler hạ nguồn trên từng ống, đối soát với bảng quy định đường kính.
 - **Coverage Check:** Phân tích vùng bao phủ an toàn của Sprinkler bằng grid-based sampling.
 
-### 3.4 Quản lý Mô hình & View *(Mới v2.1)*
+### 3.4 Quản lý Mô hình & View *(Mới v2.2)*
+- **Material Management:** Liệt kê toàn bộ vật liệu trong dự án và thống kê số lần sử dụng. Hỗ trợ thay đổi (batch change) vật liệu hàng loạt cho các đối tượng (Type parameter, Instance parameter, CompoundStructure layer).
 - **Grid & Level Intelligence:** Truy vấn tọa độ, phân tích hệ lưới trục và cao độ chi tiết của tầng.
 - **Workset Detail Analysis:** Thống kê chi tiết số lượng elements theo category bên trong từng workset.
 - **Model Health Purge:** Phân tích model rác (View Templates, Filters, Worksets không sử dụng).
@@ -89,6 +91,10 @@ Dưới đây là một số cú pháp tham khảo để kiểm thử hệ thố
 ---
 
 ## 5. Changelog
+
+### v2.2 (04/05/2026)
+- ✅ **Material Operations:** Hỗ trợ xem danh sách vật liệu và đổi vật liệu hàng loạt (`batch_change_materials`)
+- ✅ **Parameter Copying:** Hỗ trợ copy giá trị parameter này sang parameter khác (`copy_parameters`)
 
 ### v2.1 (04/05/2026)
 - ✅ **Grid & Level Intelligence:** Truy vấn tọa độ, phân tích hệ lưới trục và cao độ chi tiết của tầng.

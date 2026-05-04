@@ -9,7 +9,7 @@
 
 ## Cách 1: Cài đặt tự động (khuyến nghị)
 
-1. Giải nén file `AI-for-Revit-v2.1.zip`
+1. Giải nén file `AI-for-Revit-v2.2.zip`
 2. **Tắt Revit** nếu đang mở
 3. Double-click **`install.bat`**
 4. Mở lại Revit → Tab **"AI for Revit"** xuất hiện trên Ribbon

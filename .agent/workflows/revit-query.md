@@ -41,6 +41,9 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Revit Links | `/api/linked-models` | GET |
 | Danh sách Grids + Tọa độ | `/api/grids` | GET |
 | Danh sách Levels + Cao độ chi tiết | `/api/levels/detail` | GET |
+| Danh sách Materials + Thống kê sử dụng | `/api/materials` | GET |
+| Thay đổi Material hàng loạt | `/api/materials/batch-change` | POST, body: `{"fromMaterial":"...","toMaterial":"...","categories":["Walls"],"scope":"all","dryRun":true}` |
+| Copy Parameter giữa các elements | `/api/parameters/copy` | POST, body: `{"category":"...","sourceParameter":"...","targetParameter":"...","dryRun":true}` |
 | Phân tích unused View Templates/Filters/Worksets | `/api/purge/analysis` | GET |
 | Danh sách Schedules | `/api/schedules` | GET |
 | Xuất dữ liệu Schedule | `/api/schedule/{name}` | GET |
