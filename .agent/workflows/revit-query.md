@@ -59,6 +59,8 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Set parameter theo level | `/api/elements/set-parameter-by-level` | POST, body: `{"category":"...","parameterName":"...","rules":[{"levels":["..."],"value":"..."},{"levels":["*"],"value":"..."}]}` |
 | Tìm + Gán parameter (all-in-one) | `/api/elements/filter-and-set-parameter` | POST, body: `{"category":"...","levels":["..."],"parameterName":"...","value":"...","dryRun":true}` |
 | Gán parameter theo BoundingBox giữa 2 Level (FloorParameterAssigner) | `/api/elements/assign-parameter-between-levels` | POST, body: `{"lowerLevelName":"...","upperLevelName":"...","categories":["Walls","Doors"],"parameterName":"TANG","value":"TẦNG 1","dryRun":true}` |
+| Kiểm tra tính hợp lệ của Elements | `/api/elements/verify` | POST, body: `{"elementIds":[...],"scope":"project"}` |
+| Chụp/So sánh Snapshot mô hình | `/api/model/snapshot` | POST, body: `{"action":"create","limit":5000}` hoặc `{"action":"compare","baselineSnapshot":"..."}` |
 
 ### 3. Gọi API bằng curl
 // turbo

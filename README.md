@@ -3,7 +3,7 @@
   <h1>AI for Revit</h1>
   <p><strong>Công cụ giao tiếp, truy vấn và quản lý dữ liệu Revit thông qua ngôn ngữ tự nhiên</strong></p>
 
-  ![Version](https://img.shields.io/badge/Version-2.2-blue?style=flat-square)
+  ![Version](https://img.shields.io/badge/Version-2.3-blue?style=flat-square)
   ![Revit Version](https://img.shields.io/badge/Revit-2023%20%7C%202024-0696D7?style=flat-square&logo=autodesk)
   ![Antigravity](https://img.shields.io/badge/Antigravity-Integration-8A2BE2?style=flat-square&logo=google)
 </div>
@@ -38,7 +38,7 @@ Cơ sở dữ liệu lệnh được đính kèm sẵn dưới dạng tệp cấ
 
 ---
 
-## 3. Chức năng hệ thống (v2.2)
+## 3. Chức năng hệ thống (v2.3)
 
 ### 3.1 Truy vấn & Thống kê
 - **Data Extraction & Schedules:** Truy xuất tham số, trích xuất dữ liệu từ các Bảng thống kê (Schedules), truy vấn thông tin Worksets, Links và Warnings nội tại.
@@ -63,7 +63,11 @@ Cơ sở dữ liệu lệnh được đính kèm sẵn dưới dạng tệp cấ
 - **Model Health Purge:** Phân tích model rác (View Templates, Filters, Worksets không sử dụng).
 - **View Control:** Ẩn/hiện toàn bộ Revit Links trong view hiện hành nhanh chóng.
 
-### 3.5 LLM-Compact Data
+### 3.5 Model Intelligence (Phase 3) *(Mới v2.3)*
+- **Element Verification:** Kiểm tra tính hợp lệ của hàng loạt Element ID xem chúng có tồn tại trong mô hình hiện hành hoặc active view không.
+- **Model Snapshot & Compare:** Chụp lại trạng thái (hash hình học và hash tham số) của tất cả/một phần elements trong mô hình, hỗ trợ xuất JSON. Cung cấp chức năng so sánh trực tiếp hai bản snapshot để báo cáo nhanh các cấu kiện bị Thêm/Xóa/Sửa (geometry/parameter).
+
+### 3.6 LLM-Compact Data
 - Kết xuất dữ liệu JSON ở cấu trúc cô đọng (loại bỏ Null và ký tự định dạng) để tương thích với giới hạn bộ nhớ (Context Window) của LLM.
 
 ---
@@ -91,6 +95,10 @@ Dưới đây là một số cú pháp tham khảo để kiểm thử hệ thố
 ---
 
 ## 5. Changelog
+
+### v2.3 (04/05/2026)
+- ✅ **Element Verification:** Kiểm tra tính tồn tại của danh sách Element ID (`/api/elements/verify`)
+- ✅ **Model Snapshot:** Chụp và so sánh thay đổi của mô hình bằng cơ chế Hash (`/api/model/snapshot`)
 
 ### v2.2 (04/05/2026)
 - ✅ **Material Operations:** Hỗ trợ xem danh sách vật liệu và đổi vật liệu hàng loạt (`batch_change_materials`)
