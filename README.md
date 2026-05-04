@@ -3,7 +3,7 @@
   <h1>AI for Revit</h1>
   <p><strong>Công cụ giao tiếp, truy vấn và quản lý dữ liệu Revit thông qua ngôn ngữ tự nhiên</strong></p>
 
-  ![Version](https://img.shields.io/badge/Version-2.0-blue?style=flat-square)
+  ![Version](https://img.shields.io/badge/Version-2.1-blue?style=flat-square)
   ![Revit Version](https://img.shields.io/badge/Revit-2023%20%7C%202024-0696D7?style=flat-square&logo=autodesk)
   ![Antigravity](https://img.shields.io/badge/Antigravity-Integration-8A2BE2?style=flat-square&logo=google)
 </div>
@@ -38,7 +38,7 @@ Cơ sở dữ liệu lệnh được đính kèm sẵn dưới dạng tệp cấ
 
 ---
 
-## 3. Chức năng hệ thống (v2.0)
+## 3. Chức năng hệ thống (v2.1)
 
 ### 3.1 Truy vấn & Thống kê
 - **Data Extraction & Schedules:** Truy xuất tham số, trích xuất dữ liệu từ các Bảng thống kê (Schedules), truy vấn thông tin Worksets, Links và Warnings nội tại.
@@ -83,6 +83,12 @@ Dưới đây là một số cú pháp tham khảo để kiểm thử hệ thố
 ---
 
 ## 5. Changelog
+
+### v2.1 (04/05/2026)
+- ✅ **Grid & Level Intelligence:** Truy vấn tọa độ, phân tích hệ lưới trục và cao độ chi tiết của tầng.
+- ✅ **Workset Detail Analysis:** Thống kê chi tiết số lượng elements theo category bên trong từng workset.
+- ✅ **Model Health Purge:** Phân tích model rác (View Templates, Filters, Worksets không sử dụng).
+- ✅ **Toggle Revit Links:** Ẩn/hiện toàn bộ Revit Links trong view hiện hành nhanh chóng.
 
 ### v2.0 (04/05/2026)
 - ✅ **Filter & Set Parameter (All-in-one):** Endpoint mới gộp tìm + lọc + gán parameter, hỗ trợ `dryRun`
