@@ -55,7 +55,13 @@ Cơ sở dữ liệu lệnh được đính kèm sẵn dưới dạng tệp cấ
 - **Sprinkler Analysis:** Kiểm tra số lượng Sprinkler hạ nguồn trên từng ống, đối soát với bảng quy định đường kính.
 - **Coverage Check:** Phân tích vùng bao phủ an toàn của Sprinkler bằng grid-based sampling.
 
-### 3.4 LLM-Compact Data
+### 3.4 Quản lý Mô hình & View *(Mới v2.1)*
+- **Grid & Level Intelligence:** Truy vấn tọa độ, phân tích hệ lưới trục và cao độ chi tiết của tầng.
+- **Workset Detail Analysis:** Thống kê chi tiết số lượng elements theo category bên trong từng workset.
+- **Model Health Purge:** Phân tích model rác (View Templates, Filters, Worksets không sử dụng).
+- **View Control:** Ẩn/hiện toàn bộ Revit Links trong view hiện hành nhanh chóng.
+
+### 3.5 LLM-Compact Data
 - Kết xuất dữ liệu JSON ở cấu trúc cô đọng (loại bỏ Null và ký tự định dạng) để tương thích với giới hạn bộ nhớ (Context Window) của LLM.
 
 ---
