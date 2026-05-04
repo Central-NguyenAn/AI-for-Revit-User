@@ -34,9 +34,14 @@ Dựa trên câu hỏi, chọn endpoint phù hợp:
 | Thống kê nhóm theo type | `/api/elements/summary` | POST, body: `{"category":"...","parameterName":"..."}` |
 | Danh sách Views/Sheets | `/api/views` | GET |
 | View hiện hành đang mở | `/api/active-view` | GET |
+| Ẩn/hiện Revit Links trong view | `/api/views/toggle-links` | POST, body: `{"action":"hide/show/toggle"}` |
 | Warnings | `/api/warnings` | GET |
 | Worksets | `/api/worksets` | GET |
+| Thống kê elements theo Worksets | `/api/worksets/detail` | GET |
 | Revit Links | `/api/linked-models` | GET |
+| Danh sách Grids + Tọa độ | `/api/grids` | GET |
+| Danh sách Levels + Cao độ chi tiết | `/api/levels/detail` | GET |
+| Phân tích unused View Templates/Filters/Worksets | `/api/purge/analysis` | GET |
 | Danh sách Schedules | `/api/schedules` | GET |
 | Xuất dữ liệu Schedule | `/api/schedule/{name}` | GET |
 | Chọn elements | `/api/elements/select` | POST, body: `{"elementIds":[...]}` |
